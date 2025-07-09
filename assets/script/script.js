@@ -15,16 +15,20 @@ const getBooks = function () {
     .then((bookObj) => {
       // Richiamo in una variabile il div con id "cardBook"
       const book = document.getElementById('cardBook');
+      // Con un forEach richiamo ciclo l'array dell'API
       bookObj.forEach((bookItem) => {
         // Creo l'HTML con += (Ovvero che aggiunge)
         book.innerHTML += `
         <div class="col col-12 col-sm-6 col-md-3">
-            <div class="card mb-3 h-100">
-                <img src="${bookItem.img}" class="card-img-top" alt="Pandemic">
-                    <div class="card-body">
-                    <h5 class="card-title">${bookItem.title}</h5>
-                    <p class="card-text fs-5">Price: ${bookItem.price}€</p>
+            <div class="card mb-3 h-100 rounded-4 overflow-hidden">
+                <img src="${bookItem.img}" class="card-img-top flex-grow-1" alt="Pandemic">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title flex-grow-0">${bookItem.title}</h5>
+                    <p class="card-text fs-5 flex-grow-1">Price: ${bookItem.price}€</p>
+                    <div class="d-flex justify-content-between">
+                    <button class="btn btn-primary add">COMPRA</button>
                     <button class="btn btn-danger remove">SCARTA</button>
+                    </div>
                 </div>
             </div>
         </div>
