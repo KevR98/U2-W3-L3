@@ -8,7 +8,7 @@ const getBooks = function () {
         // Faccio un controllo... e se il server è OK, esprapolo il JSON
         return res.json();
       } else {
-        // Il Response ha un problema!
+        // Con questo codice, mando direttamente alla catch con un messaggio
         throw new Error('LA RESPONSE DA STRIVESCHOOL NON È OK');
       }
     })
